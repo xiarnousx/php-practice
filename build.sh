@@ -14,15 +14,15 @@ docker run --rm \
     -v "$(pwd)":/opt \
     -w /opt \
     laravelsail/php84-composer:latest \
-    bash -c "laravel new $APP --no-interaction && cd $APP && php ./artisan sail:install --with=mysql,redis,meilisearch,mailpit,selenium "
+    bash -c "laravel new $APP --no-interaction && cd $APP && php ./artisan sail:install --with=mysql"
 
 cd $APP
 
 # Allow build with no additional services..
-if [ "mysql redis meilisearch mailpit selenium" == "none" ]; then
+if [ "mysql" == "none" ]; then
     ./vendor/bin/sail build
 else
-    ./vendor/bin/sail pull mysql redis meilisearch mailpit selenium
+    ./vendor/bin/sail pull mysql
     ./vendor/bin/sail build
 fi
 
