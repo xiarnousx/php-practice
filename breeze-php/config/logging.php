@@ -127,6 +127,12 @@ return [
             'path' => storage_path('logs/laravel.log'),
         ],
 
+        'service' => [
+            'driver' => 'custom',
+            'via' => App\Logging\ServiceLogger::class,
+            'level' => env('LOG_LEVEL', 'debug'),
+            'replace_placeholders' => true,
+        ],
     ],
 
 ];
