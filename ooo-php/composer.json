@@ -1,0 +1,9 @@
+{
+    "name": "ooo-php/app",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src"
+        }
+    },
+    "require": {}
+}
